@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostsController extends Controller
 {
@@ -19,6 +19,30 @@ class PostsController extends Controller
 
     public function store()
     {
-        dd(request()->all());
+        $data = request()->validate([
+            'caption' => 'required',
+            'image' => 'required', 'image',
+        ]);
+
+        $imagePath = request('image')->store('uploads', 'public');
+
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
+        $image->save();
+
+        $post = new \App\Post();
+
+        $post->user_id = auth()->id();
+        $post->caption = $data['caption'];
+        $post->image = $imagePath;
+
+        $post->save();
+
+        return redirect('/profile/'.auth()->user()->id);
     }
+
+    public function show(\App\Post $post)
+    {
+        return view('posts.show', compact('post'));
+    }
+
 }

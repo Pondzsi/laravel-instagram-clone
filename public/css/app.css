@@ -10899,3 +10899,24 @@ a.text-dark:focus {
   }
 }
 
+.no-link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.no-link:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+.no-link:hover {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+}
+.no-link:active {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+}
