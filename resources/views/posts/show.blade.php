@@ -12,12 +12,12 @@
                     <img src="{{ $post->user->profile->profileImage() }}" class="w-100 rounded-circle" style="max-width: 50px;">
                 </div>
                 <div>
-                    <div class="font-weight-bold"><a class="no-link" href="/profile/{{ $post->user->id }}">{{ $post->user->username }}</a></div>
+                    <div class="font-weight-bold"><a href="/profile/{{ $post->user->id }}"><span class="text-dark">{{ $post->user->username }}</span></a></div>
                 </div>
                 <a href="#" class="pl-2 font-weight-bold">Follow</a>
             </div>
             <hr>
-            <p><span class="font-weight-bold"><a class="no-link" href="/profile/{{ $post->user->id }}">{{ $post->user->username }}</a></span> {{ $post->caption }}</p>
+            <p><span class="font-weight-bold"><a href="/profile/{{ $post->user->id }}"><span class="text-dark">{{ $post->user->username }}</span></a></span> {{ $post->caption }}</p>
         </div>
     </div>
 </div>
